@@ -1,9 +1,13 @@
 package br.com.ftt.bookstore.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,21 +15,19 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class Book {
-	
+@AllArgsConstructor
+public class Order {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String title;
-	private String description;
+	private int idUser;
 	
-	//TODO join
-	private int idSuplier;
+	@Temporal(TemporalType.DATE)
+	private Date dataFechamento;
 	
-	//TODO join
-	private int idCategory;
-
+	@Temporal(TemporalType.DATE)
+	private Date dataEntrega;
 }

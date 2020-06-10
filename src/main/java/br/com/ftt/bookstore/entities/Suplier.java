@@ -11,21 +11,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+@AllArgsConstructor
+public class Suplier {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String title;
-	private String description;
-	
-	//TODO join
-	private int idSuplier;
-	
-	//TODO join
-	private int idCategory;
+	private String nome;
+	private String cnpj;
 
 }
