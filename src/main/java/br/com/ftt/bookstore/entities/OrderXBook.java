@@ -25,11 +25,11 @@ public class OrderXBook {
 	
 	@ManyToOne
     @JoinColumn(name="id_order")
-	private Long idOrder;
+	private Order order;
 	
 	@ManyToOne
     @JoinColumn(name="id_book")
-	private Long idBook;
+	private Book book;
 	
 	private Long quantity;
 }

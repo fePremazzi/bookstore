@@ -2,6 +2,7 @@ package br.com.ftt.bookstore.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,13 +33,13 @@ public class Book {
 	
 	@ManyToOne
 	@Column(name="id_suplier") 
-	private Long idSuplier;
+	private Suplier suplier;
 	
 	@ManyToOne
 	@Column(name="id_category")
-	private Long idCategory;
+	private Category category;
 	
-	@OneToMany(mappedBy = "book")
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     List<OrderXBook> orderBooks;
 
 }
