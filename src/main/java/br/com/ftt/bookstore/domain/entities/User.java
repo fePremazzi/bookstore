@@ -1,4 +1,4 @@
-package br.com.ftt.bookstore.entities;
+package br.com.ftt.bookstore.domain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,16 +12,18 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "suplier")
+@Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Suplier {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String nome;
-	private String cnpj;
+	private String name;
+	private String address;
+	private String login;
+	private String password;
 
 }

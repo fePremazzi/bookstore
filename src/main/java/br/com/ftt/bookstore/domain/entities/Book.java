@@ -1,8 +1,8 @@
-package br.com.ftt.bookstore.entities;
+package br.com.ftt.bookstore.domain.entities;
 
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,27 +18,28 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "order")
-@NoArgsConstructor
+@Table(name = "book")
 @AllArgsConstructor
-public class Order {
-
+@NoArgsConstructor
+public class Book {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String title;
+	private String isbn;
+	private String description;
+	
 	@ManyToOne
-	@Column(name="id_user")
-	private Long idUser;
+	@Column(name="id_suplier") 
+	private Suplier suplier;
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_fechamento")
-	private Date dataFechamento;
+	@ManyToOne
+	@Column(name="id_category")
+	private Category category;
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="data_entrega")
-	private Date dataEntrega;
-	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     List<OrderXBook> orderBooks;
+
 }
