@@ -1,5 +1,6 @@
 package br.com.ftt.bookstore.domain.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,8 +33,8 @@ public class Sale {
 	private Long id;
 	
 	@ManyToOne
-	@Column(name="id_user")
-	private Long idUser;
+	@JoinColumn(name="id_user")
+	private User idUser;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="data_fechamento")
@@ -42,6 +44,6 @@ public class Sale {
 	@Column(name="data_entrega")
 	private Date dataEntrega;
 	
-	@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<BookSale> bookSale;
+	@OneToMany(mappedBy = "sale")
+    List<BookSale> bookSale = new ArrayList<>(); 
 }

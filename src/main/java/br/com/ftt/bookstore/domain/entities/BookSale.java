@@ -24,8 +24,8 @@ public class BookSale {
 	private Long id;
 	
 	@ManyToOne
-    @JoinColumn(name="id_order")
-	private Sale order;
+    @JoinColumn(name="id_sale")
+	private Sale sale;
 	
 	@ManyToOne
     @JoinColumn(name="id_book")

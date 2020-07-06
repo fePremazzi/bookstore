@@ -26,7 +26,5 @@ public class Category {
 	private Long id;
 	
 	private String name;
-	
-	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Book> books;
+
 }

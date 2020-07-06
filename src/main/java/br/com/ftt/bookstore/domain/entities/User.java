@@ -29,8 +29,5 @@ public class User {
 	private String address;
 	private String login;
 	private String password;
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Sale> sales;
 
 }

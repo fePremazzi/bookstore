@@ -27,8 +27,5 @@ public class Suplier {
 	
 	private String name;
 	private String cnpj;
-	
-	@OneToMany(mappedBy = "suplier", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Book> books;
 
 }
