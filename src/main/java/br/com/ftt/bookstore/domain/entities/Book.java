@@ -40,6 +40,6 @@ public class Book {
 	private Category category;
 	
 	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<OrderXBook> orderBooks;
+    List<BookSale> bookSale;
 
 }

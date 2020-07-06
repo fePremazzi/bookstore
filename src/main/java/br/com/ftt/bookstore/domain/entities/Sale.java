@@ -3,6 +3,7 @@ package br.com.ftt.bookstore.domain.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "order")
+@Table(name = "sale")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Sale {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +42,6 @@ public class Order {
 	@Column(name="data_entrega")
 	private Date dataEntrega;
 	
-	@OneToMany(mappedBy = "order")
-    List<OrderXBook> orderBooks;
+	@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<BookSale> bookSale;
 }

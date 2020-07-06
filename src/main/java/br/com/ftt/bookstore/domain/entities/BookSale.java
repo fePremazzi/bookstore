@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "order_book")
-public class OrderXBook {
+public class BookSale {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class OrderXBook {
 	
 	@ManyToOne
     @JoinColumn(name="id_order")
-	private Order order;
+	private Sale order;
 	
 	@ManyToOne
     @JoinColumn(name="id_book")
